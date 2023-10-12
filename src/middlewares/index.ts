@@ -34,7 +34,7 @@ export const isAuthenticated = async (
 ) => {
   try {
     // Check previous cookie
-    const sessionToken = req.cookies["ANTONIO-AUTH"];
+    const sessionToken = req.cookies["SECURE-AUTH"];
 
     if (!sessionToken) {
       return res.sendStatus(403);
