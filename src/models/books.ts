@@ -11,3 +11,4 @@ export const BookModel = mongoose.model("Book", BookSchema);
 // Functions
 export const addBook = (values: Record<string, any>) =>
   new BookModel(values).save().then((book) => book.toObject());
+export const getBooks = () => BookModel.find();
