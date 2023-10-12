@@ -36,7 +36,7 @@ export const login = async (req: express.Request, res: express.Response) => {
     await user.save();
 
     res.cookie("SECURE-AUTH", user.authentication.sessionToken, {
-      domain: "localhost",
+      domain: req.hostname,
       path: "/",
     });
 
