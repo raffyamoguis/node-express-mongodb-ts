@@ -5,9 +5,9 @@ import cookieParser from "cookie-parser";
 import compression from "compression";
 import cors from "cors";
 import mongoose, { ConnectOptions } from "mongoose";
-import "dotenv/config";
 
 import router from "./router";
+import {MONGO_URI, DATABASE} from "../config";
 
 const app = express();
 
@@ -28,8 +28,8 @@ server.listen(8080, () => {
 });
 
 mongoose.Promise = Promise;
-mongoose.connect(process.env.MONGO_URL, {
-  dbName: "test",
+mongoose.connect(MONGO_URI, {
+  dbName: DATABASE,
 } as ConnectOptions);
 mongoose.connection.on("error", (error: Error) => console.log(error));
 
